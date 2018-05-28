@@ -1,4 +1,4 @@
-
+//testando o git 
 <html><!-- InstanceBegin template="Templates/design_template.dwt" codeOutsideHTMLIsLocked="true" -->
 	<head>
 		<!-- InstanceBeginEditable name="doctitle" -->
@@ -66,7 +66,7 @@
  // Se conecta ao IP e Porta:
  socket_connect($sock,"169.254.218.235", 83);
 
- // Executa a ação correspondente ao botão apertado.
+ // Executa a aÃ§Ã£o correspondente ao botÃ£o apertado.
 
    if(isset($_POST['bits'])){
    $msg = $_POST['bits'];
@@ -85,7 +85,7 @@
   //Quarto5 
    if(isset($_POST['quarto5' ])) {    if($msg[6]=='1') {   $msg[6]='0';  } else  {   $msg[6]='1'; } }
 //Alarma
-   if(isset($_POST['alarme' ])) {    if($msg[7]=='1') {   $msg[7]='0';  } else  {   $msg[7]='1'; } }
+	  // -------------------------------------------------------------------------------
 
    if(isset($_POST['Pequeno']))
  { 
@@ -100,7 +100,9 @@
 
   socket_write($sock,'R#',2); //Requisita o status do sistema.
 
-// Espera e lê o status e define a cor dos botões de acordo.
+ //  if(isset($_POST['alarme' ])) {    if($msg[7]=='1') {   $msg[7]='0';  } else  {   $msg[7]='1'; } }
+					//---------------------------------------------------
+// Espera e lÃª o status e define a cor dos botÃµes de acordo.
 
    $status = socket_read($sock,10);
    if (($status[8]=='L')&&($status[9]=='#')) 
@@ -134,15 +136,15 @@ echo "<button style=\"width:170;Height:50; background-color: $cor7 ;font: bold 1
 
 echo "<button style=\"width:170;Height:50; background-color: $cor8 ;font: bold 14px Arial\" type = \"Submit\" Name = \"alarme\">Lig/Delig Alarme</button>&nbsp&nbsp&nbsp";
 
-echo "<button style=\"width:170;Height:50;font: bold 14px Arial\" type = \"Submit\"Name = \"Pequeno\">Portón Pequeño</button>&nbsp&nbsp&nbsp";
+echo "<button style=\"width:170;Height:50;font: bold 14px Arial\" type = \"Submit\"Name = \"Pequeno\">PortÃ³n PequeÃ±o</button>&nbsp&nbsp&nbsp";
 
-echo "<button style=\"width:170;Height:50;font: bold 14px Arial\" type = \"Submit\"Name = \"Grande\">Portón Grande</button>&nbsp&nbsp&nbsp";
+echo "<button style=\"width:170;Height:50;font: bold 14px Arial\" type = \"Submit\"Name = \"Grande\">PortÃ³n Grande</button>&nbsp&nbsp&nbsp";
 
 
 echo "</form>";
 
  }
- // Caso ele não receba o status corretamente, avisa erro.
+ // Caso ele nÃ£o receba o status corretamente, avisa erro.
  else { echo "Falha ao receber status da casa."; }
  socket_close($sock);
  ?>
